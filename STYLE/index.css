@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+:root {
+    --primary-color: lightblue;
+    --secondary-color: rgb(143, 201, 220);
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1, h2 {
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 10px 0;
+}
+
+p {
+    margin: 10px 0;
+}
+
+img {
+    width: 100%;
+}
+
+/* Navbar design */
+
+.navbar {
+    background-color: lightblue;
+    color: white;
+    height: 70px;
+}
+
+.navbar .flex{
+ justify-content: space-between;   
+}
+
+.navbar ul{
+    display: flex;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px solid white
+}
+
+/* Showcase */
+
+.showcase {
+    background: var(--primary-color);
+    height: 400px;
+    color: white;
+    position: relative;
+}
+.showcase-text {
+    animation: slideInRight 1s ease-in;
+}
+
+.showcase h2{
+    font-size: 40px;
+    color: #333;
+}
+.showcase h1{
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.showcase p{
+    margin: 20px 0;
+}
+
+.showcase .grid {
+    overflow: visible;
+    grid-template-columns: 55%, 70%;
+    gap: 30px;
+}
+
+.showcase-form {
+    position: relative;
+    top: 60px;
+    height: 350px;
+    padding: 40px;
+    width: 400px;
+    z-index: 100;
+    justify-self: flex-end;
+    animation: slideInLeft 1s ease-in;
+}
+
+.showcase-form input[type='text'], .showcase-form input[type='email'] {
+    border: 0;
+    border-bottom: 2px solid #be4bcd;
+    width: 100%;
+    padding: 3px;
+}
+
+.showcase-form input:focus {
+    outline: none;
+}
+
+.showcase-form .form-control {
+    margin: 30px 0;
+}
+
+.showcase::before,
+.showcase::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -70px;
+    height: 100px;
+    background: #ffffff;
+    transform: skewY(-2deg);
+    -ms-transform: skewY(-2deg);
+    -webkit-transform: skewY(-2deg);
+    -moz-transform: skewY(-2deg);
+}
+
+/* stats */
+
+.stats {
+    padding-top: 100px;
+    animation: slideInBig 1s ease-in;
+}
+.stats .container h3 {
+    max-width: 500px;
+    margin: auto;
+}
+
+.stats .grid h3 {
+    font-size: 35px;
+}
+
+.stats .grid p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Structure */
+.structure {
+    padding: 30px 0;
+}
+
+.structure .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.structure .grid > *:first-child{
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+/* Footer */
+
+.footer .social a {
+    margin: 0 5px;
+}
+.footer > nav > li {
+    margin: 5px 0;
+}
+.footer nav li a:hover {
+    border-bottom: 2px solid white
+}
+
+/* transition */
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(-100%)
+    }
+    100% {
+        transform:translateX(0)
+    }
+}
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(100%)
+    }
+    100% {
+        transform:translateX(0)
+    }
+}
+@keyframes slideInSmall {
+    0% {
+        transform: translateY(-100%)
+    }
+    100% {
+        transform:translateX(0)
+    }
+}
+@keyframes slideInBig {
+    0% {
+        transform: translateY(100%)
+    }
+    100% {
+        transform:translateX(0)
+    }
+}
+
+/* queries */
+
+/* tbl */
+@media (max-width: 768px) {
+   .showcase .grid,
+   .stats .grid,
+   .structure .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+   }
+   .showcase {
+    height: auto;
+   }
+   .stats {
+    animation: slideInRight 1s ease-in; 
+   }
+   .showcase-text {
+    text-align: center;
+    margin-top: 40px;
+    animation: slideInSmall 1s ease-in;
+   }
+   .showcase-form {
+    justify-self: center;
+    animation: slideInBig 1s ease-in;
+   }
+   .structure .grid > *:first-child{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+}
+
+/* mbl */
+@media (max-width: 500px) {
+    .navbar{
+        height: 110px;
+    }
+    .navbar .flex {
+        flex-direction: column;
+    }
+
+    .navbar ul {
+        padding: 10px;
+        background-color: var(--secondary-color);
+        border-radius: 10px;
+    }
+}
